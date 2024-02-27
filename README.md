@@ -1,0 +1,14 @@
+# OOP Electronic gradebook
+
+Programul implementează toate funcționalitățile de bază cerute în enunțul temei, pe care le folosește ori pentru a deservi interfața grafică a aplicației, ori pentru a încărca datele din fișierul cu date de test în structura de organizare propusă de enunțul temei.
+
+Implementarea majorității claselor și metodelor a fost simplă și rapidă, întrucât etapa de proiectare a arhitecturii de bază a aplicației a fost făcută deja pentru noi. Metodele în sine au, în mare parte, funcționalitate simplă, scurtă și clară, iar clasele și interfețele, având aproape toate câmpurile date explicit, au fost de asemenea ușor de creat.
+
+În ceea ce privește modificările proprii asupra arhitecturii de bază, acestea iau forma unor adăugări de metode/câmpuri care au ca scop realizarea funcționalității de încărcare a datelor din fișierul JSON în clasele deja existente, respectiv accesarea unor astfel de date din interfața grafică. Acest lucru este cel mai vizibil în clasa ScoreVisitor, în/din care notele trebuie să fie puse/preluate în vederea citirii din fișier/afișarea în interfața grafică în vederea validării acestora.
+
+O altă modificare notabilă, dar utilă și logică a arhitecturii o reprezintă adăugarea clasei TeachingStaff, ce extinde clasa User și este moștenită de clasele Assistant și Teacher. Logica din spatele acestei decizii este faptul că interfața grafică a acestor două tipuri de utilizatori este aceeași, deci crearea unui strămoș comun are sens.
+
+Interfața grafică, fiind partea care ne oferă cea mai mare libertate în implementare, este cea în care am avut de luat cele mai multe decizii proprii. În acest sens, am considerat că, pentru a implementa funcționalitatea cerută, voi avea nevoie de o pagină de pornire, din care se poate accesa pagina specifică unui utilizator. După alegerea paginii dorite (de Student, Parent, Teacher sau Assistant), se cere numele utilizatorului a cărui pagină se dorește. Pentru fiecare dintre aceștia, este definită o interfață grafică proprie, cu date personalizate, în funcție de scopul și funcția utilizatorului, astfel:
+1. Student: are o listă cu toate cursurile din care face parte, iar pentru fiecare dintre acestea poate vedea datele suplimentare cerute în enunțul problemei. Suplimentar, există un buton de Refresh Courses, care are rolul de a reactualiza lista de cursuri în care studentul este înscris.
+2. Parent: oferă o listă a cursurilor din catalog, pentru care oferă date despre acestea și posibilitatea de a se abona pentru a primi notificări de la fiecare curs în parte. Notificările deja primite pot fi vizualizate tot pe această pagină (pentru a putea actualiza lista acestora a fost adăugat un buton de Refresh) și, eventual, șterse.
+3. Teacher/Assistant: oferă posibilitatea unui profesor/asistent de a vizualiza notele pe care le are de validat și oferă funcționalitatea necesară pentru a face acest lucru.
